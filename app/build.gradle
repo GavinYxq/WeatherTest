@@ -10,7 +10,6 @@ android {
     InputStream inputStream = project.rootProject.file('local.properties').newDataInputStream();
     properties.load(inputStream)
 
-    def SECERT_TOKEN = properties.getProperty("SECERT_TOKEN")
     compileSdk 32
 
     defaultConfig {
@@ -19,7 +18,7 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
-        buildConfigField("String", "SECERT_TOKEN", "${SECERT_TOKEN}")
+        buildConfigField("String", "SECERT_TOKEN", "${properties.getProperty("SECERT_TOKEN")}")
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
